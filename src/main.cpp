@@ -42,8 +42,7 @@ int main(){
     
     std::vector<uint8_t> *new_image;
 
-
-    new_image = deblur(image);
+    new_image = deblur(image, file_header.biHeight, file_header.biWidth);
 
 
     std::cout.write(reinterpret_cast<char*>(&header), sizeof(header));
