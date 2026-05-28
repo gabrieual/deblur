@@ -4,8 +4,8 @@
 #include "process.hpp"
 #include "fftw3.h"
 
-#define LAMBDA 0.01
-#define SIGMA 0.5
+#define LAMBDA 0.05
+#define SIGMA 2
 
 std::vector<double> pad_kernel(
     std::vector<double> &kernel, 
@@ -113,9 +113,9 @@ std::vector<uint8_t>* deconv(
     
         uint8_t pixel_val = static_cast<uint8_t>(pixel);
 
-        (*new_image)[i*3 + 0] = pixel_val;
         (*new_image)[i*3 + 1] = pixel_val;
         (*new_image)[i*3 + 2] = pixel_val;
+        (*new_image)[i*3 + 3] = pixel_val;
     }
 
     fftw_destroy_plan(plan_blurred);
